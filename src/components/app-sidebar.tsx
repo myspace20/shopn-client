@@ -1,5 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings, ShoppingBag } from "lucide-react"
-import { IconGitBranch } from "@tabler/icons-react"
+import { Home, Package, ShoppingCart, CreditCard,ShoppingBag } from "lucide-react"
 
 
 import {
@@ -17,33 +16,28 @@ import {
 import { Separator } from "./ui/separator"
 import { Button } from "./ui/button"
 
-// Menu items.
+
 const items = [
-    {
-        title: "Home",
-        url: "#",
-        icon: Home,
-    },
-    {
-        title: "Inbox",
-        url: "#",
-        icon: Inbox,
-    },
-    {
-        title: "Calendar",
-        url: "#",
-        icon: Calendar,
-    },
-    {
-        title: "Search",
-        url: "#",
-        icon: Search,
-    },
-    {
-        title: "Settings",
-        url: "#",
-        icon: Settings,
-    },
+  {
+    title: "Home",
+    url: "#",
+    icon: Home,
+  },
+  {
+    title: "Products",
+    url: "#",
+    icon: Package, 
+  },
+  {
+    title: "Orders",
+    url: "#",
+    icon: ShoppingCart, 
+  },
+  {
+    title: "Transactions",
+    url: "#",
+    icon: CreditCard, 
+  },
 ]
 
 export function AppSidebar() {
