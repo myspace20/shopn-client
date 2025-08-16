@@ -7,7 +7,7 @@ import { number } from "zod"
 
 
 
-export const getProducts = ( page = 1 ): Promise<Product[]> => {
+export const getProducts = (page = 1): Promise<Product[]> => {
     return api.get("/products", {
         params: {
             page
@@ -26,16 +26,16 @@ export const getProductsQueryOptions = ({ page }: { page?: number } = {}) => {
 
 type UseProductsOptions = {
     page?: number,
-    queryConfig: QueryConfig<typeof getProductsQueryOptions>
+    queryConfig?: QueryConfig<typeof getProductsQueryOptions>
 }
 
 
 export const useProducts = ({
     queryConfig,
     page
-}:UseProductsOptions) =>{
+}: UseProductsOptions) => {
     return useQuery({
-        ...getProductsQueryOptions({page}),
+        ...getProductsQueryOptions({ page }),
         ...queryConfig
     })
 }
