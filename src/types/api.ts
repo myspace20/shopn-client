@@ -20,6 +20,16 @@ export type Product = Entity<{
 }>
 
 
+export type Order = Entity<{
+  total: string
+  deliveryDate: string,
+  address:string
+  slug: string
+  seller: string
+  phoneNumber: string
+}>
+
+
 export type Meta = {
     page: number
 }
