@@ -1,6 +1,6 @@
 import { Spinner } from "@/components/ui/spinner";
 import { useTransactions } from "../api/get-transaction"
-import { transactionColumns } from "./order-table/order-table-columns";
+import { transactionColumns } from "./transaction-table/transaction-table-columns";
 import { Transaction } from "@/types/api"
 import { DataTable } from "@/components/data-table";
 
