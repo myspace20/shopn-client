@@ -3,7 +3,7 @@
 
 export type BaseEntity = {
   id: string;
-  createdAt: number;
+  createdAt: string;
 };
 
 export type Entity<T> = {
