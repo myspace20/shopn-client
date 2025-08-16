@@ -60,7 +60,6 @@ export const ProductList = () => {
     if (productQuery.isLoading) {
         return (
             <div>
-
             </div>
         )
     }

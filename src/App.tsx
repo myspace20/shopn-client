@@ -1,9 +1,8 @@
 import { AppSidebar } from './components/app-sidebar'
 import { ContentLayout } from './components/layouts/content-layout'
 import { SidebarHeader, SidebarInset, SidebarProvider, SidebarTrigger } from './components/ui/sidebar'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ProductList } from './features/product/components/view-product'
 import { UserNav } from './components/user-nav'
+import { OrderList } from './features/orders/components/view-orders'
 
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
           </div>
         </SidebarHeader>
         <ContentLayout title='Dashboard'>
-         <ProductList />
+         <OrderList />
         </ContentLayout>
       </SidebarInset>
     </SidebarProvider>
