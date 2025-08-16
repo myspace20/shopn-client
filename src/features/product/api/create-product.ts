@@ -3,6 +3,7 @@ import { MutationConfig } from "@/lib/react-query";
 import { Product } from "@/types/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import z from "zod"
+import { getProductsQueryOptions } from "./get-product";
 
 
 export const createProductInputSchema = z.object({
@@ -35,7 +36,7 @@ export const useCreateProduct = ({ mutationConfig }: UseCreateProductOptions = {
     return useMutation({
         onSuccess: (...args) => {
             queryClient.invalidateQueries({
-
+                queryKey:getProductsQueryOptions().queryKey
             });
             onSuccess?.(...args);
         },
