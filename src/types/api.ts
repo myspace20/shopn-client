@@ -18,3 +18,8 @@ export type Product = Entity<{
     price: number,
     quantity:number
 }>
+
+
+export type Meta = {
+    page: number
+}
