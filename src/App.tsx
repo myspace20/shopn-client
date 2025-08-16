@@ -2,7 +2,7 @@ import { AppSidebar } from './components/app-sidebar'
 import { ContentLayout } from './components/layouts/content-layout'
 import { SidebarHeader, SidebarInset, SidebarProvider, SidebarTrigger } from './components/ui/sidebar'
 import { UserNav } from './components/user-nav'
-import { OrderList } from './features/orders/components/view-orders'
+import { TransactionList } from './features/transaction/component/view-transactions'
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
           </div>
         </SidebarHeader>
         <ContentLayout title='Dashboard'>
-         <OrderList />
+         <TransactionList />
         </ContentLayout>
       </SidebarInset>
     </SidebarProvider>
