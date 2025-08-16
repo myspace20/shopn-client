@@ -1,0 +1,20 @@
+
+
+
+export type BaseEntity = {
+  id: string;
+  createdAt: number;
+};
+
+export type Entity<T> = {
+  [K in keyof T]: T[K];
+} & BaseEntity;
+
+
+
+export type Product = Entity<{
+    name: string,
+    description: string,
+    price: number,
+    quantity:number
+}>
