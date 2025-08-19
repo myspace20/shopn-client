@@ -17,25 +17,16 @@ import { Separator } from "./ui/separator"
 import { Button } from "./ui/button"
 
 
+
 const items = [
   {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Products",
-    url: "#",
-    icon: Package, 
-  },
-  {
     title: "Orders",
-    url: "#",
+    url: "/app/dashboard/orders",
     icon: ShoppingCart, 
   },
   {
     title: "Transactions",
-    url: "#",
+    url: "/app/dashboard/transactions",
     icon: CreditCard, 
   },
 ]
