@@ -6,7 +6,7 @@ import { queryOptions, useQuery } from "@tanstack/react-query"
 
 
 export const getOrders = (page = 1): Promise<Order []> =>{
-    return api.get("/order")
+    return api.get("/orders")
 }
 
 
