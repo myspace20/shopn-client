@@ -50,10 +50,9 @@ export const sampleProducts: Product[] = [
 
 
 export const ProductList = () => {
-    const queryclient = useQueryClient()
 
     const productQuery = useProducts({
-        // page: 1
+        page: 1
     })
 
 
