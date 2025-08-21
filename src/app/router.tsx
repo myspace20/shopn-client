@@ -30,6 +30,14 @@ const convert = (queryClient: QueryClient) => (m: any) => {
 export const createAppRouter = (queryClient: QueryClient) =>
     createBrowserRouter([
         {
+            path: paths.auth.login.path,
+            lazy: () => import('../app/routes/app/auth/login').then(convert(queryClient)),
+        },
+        {
+            path: paths.auth.register.path,
+            lazy: () => import('../app/routes/app/auth/register').then(convert(queryClient)),
+        },
+        {
             path: paths.app.dashboard.path,
             element: (<DashboardRoute />),
             ErrorBoundary: AppRootErrorBoundary,
