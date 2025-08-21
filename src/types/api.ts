@@ -38,6 +38,14 @@ export type Transaction = Entity<{
 }>
 
 
+export type AuthResponse = {
+  token:string
+}
+
+export type User = {
+  email:string
+}
+
 export type Meta = {
   page: number
 }
