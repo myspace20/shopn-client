@@ -15,7 +15,7 @@ type UseDeleteProductOptions = {
 }
 
 
-export const UseDeleteProduct = ({mutationConfig}: UseDeleteProductOptions = {}) =>{
+export const useDeleteProduct = ({mutationConfig}: UseDeleteProductOptions = {}) =>{
 
     const {onSuccess, ...restConfig} = mutationConfig || {}
 
