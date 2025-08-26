@@ -6,6 +6,7 @@ import { MoreHorizontal } from "lucide-react"
 import React from "react"
 import { useState } from "react"
 import EditProduct from "../edit-product"
+import { DeleteProduct } from "../delete-product"
 
 type ProductTableRowActionsProps = {
     row: Row<Product>
@@ -14,15 +15,21 @@ type ProductTableRowActionsProps = {
 export const ProductTableRowActions = ({ row }: ProductTableRowActionsProps) => {
 
     const [isEditProductDialogOpen, setIsEditProductDialogOpen] = React.useState(false)
+    const [isDeleteProductDialogOpen, setIsDeleteProductDialogOpen] = React.useState(false)
+
 
 
 
     return (
         <>
-        <EditProduct row={row}
-            isEditProductDialogOpen={isEditProductDialogOpen}
-            setIsEditProductDialogOpen={setIsEditProductDialogOpen}
-        />
+            <EditProduct row={row}
+                isEditProductDialogOpen={isEditProductDialogOpen}
+                setIsEditProductDialogOpen={setIsEditProductDialogOpen}
+            />
+            <DeleteProduct id={row.id} 
+            isDeleteProductDialogOpen={isDeleteProductDialogOpen}
+            setIsDeleteProductDialogOpen={setIsDeleteProductDialogOpen}
+            />
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="h-8 w-8 p-0">
@@ -33,15 +40,12 @@ export const ProductTableRowActions = ({ row }: ProductTableRowActionsProps) => 
                 <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={()=>setIsEditProductDialogOpen(true)}>
+                    <DropdownMenuItem onClick={() => setIsEditProductDialogOpen(true)}>
                         Edit Product
-                        {/* <EditProductDrawer
-                            row={row}
-                            isEditProductDialogOpen={isEditProductDialogOpen}
-                            setIsEditProductDialogOpen={setIsEditProductDialogOpen}
-                        /> */}
                     </DropdownMenuItem>
-                    <DropdownMenuItem>View payment details</DropdownMenuItem>
+                    <DropdownMenuItem onClick={()=> setIsDeleteProductDialogOpen(true)}>
+                        Delete Product
+                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
         </>
