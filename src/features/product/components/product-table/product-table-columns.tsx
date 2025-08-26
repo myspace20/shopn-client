@@ -52,14 +52,14 @@ export const productColumns: ColumnDef<Product>[] = [
         header: "Created at",
     },
     {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      return (
-       <>
-       <ProductTableRowActions row={row} />
-       </>
-      )
+        id: "actions",
+        enableHiding: false,
+        cell: ({ row }) => {
+            return (
+                <>
+                    <ProductTableRowActions row={row} />
+                </>
+            )
+        },
     },
-  },
 ]
