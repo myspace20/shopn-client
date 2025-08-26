@@ -23,7 +23,8 @@ export type Order = Entity<{
   address: string
   slug: string
   seller: string
-  phoneNumber: string
+  phoneNumber: string,
+  status: string
 }>
 
 export type Transaction = Entity<{
