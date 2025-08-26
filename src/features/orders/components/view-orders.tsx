@@ -16,6 +16,7 @@ export const sampleOrders: Order[] = [
         seller: "TechWorld Ltd",
         phoneNumber: "+233201234567",
         createdAt: "2025-08-10T10:00:00Z",
+        status: "Delivered",
     },
     {
         id: "2",
@@ -26,6 +27,7 @@ export const sampleOrders: Order[] = [
         seller: "BookMart",
         phoneNumber: "+233509876543",
         createdAt: "2025-08-09T15:20:00Z",
+        status: "Delivered",
     },
     {
         id: "3",
@@ -36,6 +38,7 @@ export const sampleOrders: Order[] = [
         seller: "GadgetHub",
         phoneNumber: "+233245678901",
         createdAt: "2025-08-11T08:45:00Z",
+        status: "Out for Delivery",
     },
     {
         id: "4",
@@ -46,6 +49,7 @@ export const sampleOrders: Order[] = [
         seller: "Clothify",
         phoneNumber: "+233278654321",
         createdAt: "2025-08-12T12:30:00Z",
+        status: "Processing",
     },
     {
         id: "5",
@@ -56,6 +60,7 @@ export const sampleOrders: Order[] = [
         seller: "Foodies Express",
         phoneNumber: "+233201112223",
         createdAt: "2025-08-10T19:10:00Z",
+        status: "Delivered",
     },
 ]
 
