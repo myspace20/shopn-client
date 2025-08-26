@@ -2,12 +2,7 @@ import { api } from "@/lib/api-client";
 import { MutationConfig } from "@/lib/react-query";
 import { AuthResponse } from "@/types/api";
 import { useMutation } from "@tanstack/react-query";
-import { data } from "react-router";
 import z from "zod";
-
-
-
-
 
 
 export const registerInputSchema = z

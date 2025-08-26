@@ -1,7 +1,6 @@
+'use client';
+
 import * as React from 'react';
-
-import { useDisclosure } from '@/hooks/use-disclosure';
-
 import { Button } from './button';
 import {
   Drawer,
@@ -12,56 +11,73 @@ import {
   DrawerTrigger,
   DrawerTitle,
 } from './drawer';
+import { DrawerDescription } from './drawer';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from './dialog';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 type FormDrawerProps = {
   isDone: boolean;
-  triggerButton: React.ReactElement;
-  submitButton: React.ReactElement;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
+  description: string,
   children: React.ReactNode;
 };
 
 export const FormDrawer = ({
-  title,
+  open,
+  setOpen,
   children,
   isDone,
-  triggerButton,
-  submitButton,
+  title,
+  description
 }: FormDrawerProps) => {
-  const { close, open, isOpen } = useDisclosure();
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   React.useEffect(() => {
     if (isDone) {
-      close();
+      setOpen(false);
     }
-  }, [isDone, close]);
+  }, [isDone]);
+
+  if (isDesktop) {
+    return (
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>{title}</DialogTitle>
+            <DialogDescription>
+              {description}
+            </DialogDescription>
+          </DialogHeader>
+          {children}
+        </DialogContent>
+      </Dialog>
+    );
+  }
 
   return (
-    <Drawer
-      open={isOpen}
-      onOpenChange={(isOpen) => {
-        if (!isOpen) {
-          close();
-        } else {
-          open();
-        }
-      }}
-    >
-      <DrawerTrigger asChild>{triggerButton}</DrawerTrigger>
-      <DrawerContent className="flex max-w-[800px] flex-col justify-between sm:max-w-[540px]">
-        <div className="flex flex-col">
-          <DrawerHeader>
-            <DrawerTitle>{title}</DrawerTitle>
-          </DrawerHeader>
-          <div>{children}</div>
+    <Drawer open={open} onOpenChange={setOpen}>
+      <DrawerContent>
+        <DrawerHeader className="text-left">
+          <DrawerTitle>{title}</DrawerTitle>
+          <DrawerDescription>
+            {description}
+          </DrawerDescription>
+        </DrawerHeader>
+        <div className="px-4">
+          {children}
         </div>
-        <DrawerFooter>
+        <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            <Button variant="outline" type="submit">
-              Close
-            </Button>
+            <Button variant="outline">Cancel</Button>
           </DrawerClose>
-          {submitButton}
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
