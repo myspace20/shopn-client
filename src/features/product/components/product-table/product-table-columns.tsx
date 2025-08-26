@@ -1,6 +1,7 @@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Product } from "@/types/api"
 import { ColumnDef } from "@tanstack/react-table"
+import { ProductTableRowActions } from "./product-table-row-actions"
 
 
 
@@ -49,5 +50,16 @@ export const productColumns: ColumnDef<Product>[] = [
     {
         accessorKey: "createdAt",
         header: "Created at",
-    }
+    },
+    {
+    id: "actions",
+    enableHiding: false,
+    cell: ({ row }) => {
+      return (
+       <>
+       <ProductTableRowActions row={row} />
+       </>
+      )
+    },
+  },
 ]
