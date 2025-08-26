@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/sonner';
 import { Outlet } from 'react-router';
 
 
@@ -9,6 +10,7 @@ const AppRoot = () => {
   return (
     <>
       <Outlet />
+      <Toaster />
     </>
   );
 };
