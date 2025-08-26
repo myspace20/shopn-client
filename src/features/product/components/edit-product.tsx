@@ -1,5 +1,5 @@
-'use client';
-import { Button } from '@/components/ui/button';
+"use client";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -8,19 +8,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { useEffect } from 'react';
-import { AxiosError } from 'axios';
-import { ReloadIcon } from '@radix-ui/react-icons';
-import { Product } from '@/types/api';
-import { Row } from '@tanstack/react-table';
-import { FormDrawer } from '@/components/ui/form-drawer';
-import { useUpdateProduct } from '../api/update-product';
-import { toast } from 'sonner';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useEffect } from "react";
+import { AxiosError } from "axios";
+import { ReloadIcon } from "@radix-ui/react-icons";
+import { Product } from "@/types/api";
+import { Row } from "@tanstack/react-table";
+import { FormDrawer } from "@/components/ui/form-drawer";
+import { useUpdateProduct } from "../api/update-product";
+import { toast } from "sonner";
 
 export const updateProductSchema = z.object({
   name: z.string().min(1, "Product name is required"),
@@ -30,13 +30,16 @@ export const updateProductSchema = z.object({
 });
 
 type EditProductFormProps = {
-  row: Row<Product>,
-  isEditProductDialogOpen: boolean,
-  setIsEditProductDialogOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
+  row: Row<Product>;
+  isEditProductDialogOpen: boolean;
+  setIsEditProductDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-export default function EditProduct({ row, isEditProductDialogOpen, setIsEditProductDialogOpen }: EditProductFormProps) {
-
+export default function EditProduct({
+  row,
+  isEditProductDialogOpen,
+  setIsEditProductDialogOpen,
+}: EditProductFormProps) {
   const form = useForm<z.infer<typeof updateProductSchema>>({
     resolver: zodResolver(updateProductSchema),
     defaultValues: {
@@ -47,25 +50,20 @@ export default function EditProduct({ row, isEditProductDialogOpen, setIsEditPro
     },
   });
 
-
   const updateProductMutation = useUpdateProduct({
     mutationConfig: {
-      onSuccess: (response) => {
-
-      },
+      onSuccess: (response) => {},
     },
   });
 
   useEffect(() => {
     if (updateProductMutation.error instanceof AxiosError) {
-      toast(
-        `${updateProductMutation.error?.response?.data?.message}`,
-      );
+      toast(`${updateProductMutation.error?.response?.data?.message}`);
     }
   }, [updateProductMutation.error]);
 
   function onSubmit(data: z.infer<typeof updateProductSchema>) {
-    updateProductMutation.mutate({id:row.id, data});
+    updateProductMutation.mutate({ id: row.id, data });
     form.reset();
   }
 
@@ -74,11 +72,10 @@ export default function EditProduct({ row, isEditProductDialogOpen, setIsEditPro
       <FormDrawer
         open={isEditProductDialogOpen}
         setOpen={setIsEditProductDialogOpen}
-        description='Please follow to edit a product'
-        title='Edit product'
+        description="Please follow to edit a product"
+        title="Edit product"
         isDone={false}
       >
-
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-5">
@@ -102,7 +99,10 @@ export default function EditProduct({ row, isEditProductDialogOpen, setIsEditPro
                   <FormItem>
                     <FormLabel>Description</FormLabel>
                     <FormControl>
-                      <Input placeholder="Type your description here" {...field} />
+                      <Input
+                        placeholder="Type your description here"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

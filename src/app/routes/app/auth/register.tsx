@@ -1,16 +1,16 @@
-import { useNavigate, useSearchParams } from 'react-router';
+import { useNavigate, useSearchParams } from "react-router";
 
-import { paths } from '@/configs/paths';
-import { AuthLayout } from '@/components/layouts/auth-layout';
-import { RegisterForm } from '@/features/auth/components/register-form';
+import { paths } from "@/configs/paths";
+import { AuthLayout } from "@/components/layouts/auth-layout";
+import { RegisterForm } from "@/features/auth/components/register-form";
 
 const RegisterRoute = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get('redirectTo');
+  const redirectTo = searchParams.get("redirectTo");
 
   return (
-    <AuthLayout title='Register'>
+    <AuthLayout title="Register">
       <RegisterForm
         onSuccess={() => {
           navigate(
@@ -21,7 +21,7 @@ const RegisterRoute = () => {
           );
         }}
       />
-      </AuthLayout>
+    </AuthLayout>
   );
 };
 

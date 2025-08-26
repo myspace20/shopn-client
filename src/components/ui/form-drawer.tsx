@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { Button } from './button';
+import * as React from "react";
+import { Button } from "./button";
 import {
   Drawer,
   DrawerClose,
@@ -10,23 +10,23 @@ import {
   DrawerHeader,
   DrawerTrigger,
   DrawerTitle,
-} from './drawer';
-import { DrawerDescription } from './drawer';
+} from "./drawer";
+import { DrawerDescription } from "./drawer";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from './dialog';
-import { useMediaQuery } from '@/hooks/use-media-query';
+} from "./dialog";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 type FormDrawerProps = {
   isDone: boolean;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
-  description: string,
+  description: string;
   children: React.ReactNode;
 };
 
@@ -36,9 +36,9 @@ export const FormDrawer = ({
   children,
   isDone,
   title,
-  description
+  description,
 }: FormDrawerProps) => {
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   React.useEffect(() => {
     if (isDone) {
@@ -52,9 +52,7 @@ export const FormDrawer = ({
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
-            <DialogDescription>
-              {description}
-            </DialogDescription>
+            <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
           {children}
         </DialogContent>
@@ -67,13 +65,9 @@ export const FormDrawer = ({
       <DrawerContent>
         <DrawerHeader className="text-left">
           <DrawerTitle>{title}</DrawerTitle>
-          <DrawerDescription>
-            {description}
-          </DrawerDescription>
+          <DrawerDescription>{description}</DrawerDescription>
         </DrawerHeader>
-        <div className="px-4">
-          {children}
-        </div>
+        <div className="px-4">{children}</div>
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>

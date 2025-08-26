@@ -1,8 +1,8 @@
-import { useQueryClient } from "@tanstack/react-query"
-import { useProducts } from "../api/get-product"
-import {DataTable}  from "@/components/data-table"
-import { productColumns } from "./product-table/product-table-columns"
-import { Product } from "@/types/api"
+import { useQueryClient } from "@tanstack/react-query";
+import { useProducts } from "../api/get-product";
+import { DataTable } from "@/components/data-table";
+import { productColumns } from "./product-table/product-table-columns";
+import { Product } from "@/types/api";
 
 export const sampleProducts: Product[] = [
   {
@@ -45,29 +45,20 @@ export const sampleProducts: Product[] = [
     quantity: 50,
     createdAt: "2025-07-05T09:00:00Z",
   },
-]
-
-
+];
 
 export const ProductList = () => {
+  const productQuery = useProducts({
+    page: 1,
+  });
 
-    const productQuery = useProducts({
-        page: 1
-    })
+  if (productQuery.isLoading) {
+    return <div></div>;
+  }
 
-
-    if (productQuery.isLoading) {
-        return (
-            <div>
-            </div>
-        )
-    }
-
-
-
-    return (
-        <div className="container w-full py-10">
-            <DataTable columns={productColumns} data={sampleProducts} />
-        </div>
-    )
-}
+  return (
+    <div className="container w-full py-10">
+      <DataTable columns={productColumns} data={sampleProducts} />
+    </div>
+  );
+};

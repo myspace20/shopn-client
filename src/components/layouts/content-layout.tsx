@@ -1,11 +1,7 @@
-
-
-
 type ContentLayoutProps = {
   children: React.ReactNode;
   title: string;
 };
-
 
 export const ContentLayout = ({ children, title }: ContentLayoutProps) => {
   return (

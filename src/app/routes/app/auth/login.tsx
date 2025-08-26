@@ -1,16 +1,16 @@
-import { useNavigate, useSearchParams } from 'react-router';
+import { useNavigate, useSearchParams } from "react-router";
 
-import { paths } from '@/configs/paths';
-import { LoginForm } from '@/features/auth/components/login-form';
-import { AuthLayout } from '@/components/layouts/auth-layout';
+import { paths } from "@/configs/paths";
+import { LoginForm } from "@/features/auth/components/login-form";
+import { AuthLayout } from "@/components/layouts/auth-layout";
 
 const LoginRoute = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get('redirectTo');
+  const redirectTo = searchParams.get("redirectTo");
 
   return (
-    <AuthLayout title='Login'>
+    <AuthLayout title="Login">
       <LoginForm
         onSuccess={() => {
           navigate(
@@ -21,7 +21,7 @@ const LoginRoute = () => {
           );
         }}
       />
-      </AuthLayout>
+    </AuthLayout>
   );
 };
 

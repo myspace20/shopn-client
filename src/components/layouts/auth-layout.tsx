@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { useEffect } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router';
+import * as React from "react";
+import { useEffect } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ type LayoutProps = {
 
 export const AuthLayout = ({ children, title }: LayoutProps) => {
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get('redirectTo');
+  const redirectTo = searchParams.get("redirectTo");
 
   const navigate = useNavigate();
 
